@@ -1,7 +1,7 @@
 SOURCES := part1.c part2.c mips.c
 HEADERS := elf.h types.h mips.h
 
-ASM_TESTS := simple insts rt3 rt13 rt25
+ASM_TESTS := simple insts rt3 rt13 rt25 foo
 
 all: mips $(addprefix mipscode/, $(ASM_TESTS))
 
