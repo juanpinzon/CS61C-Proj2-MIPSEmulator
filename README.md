@@ -70,28 +70,28 @@ It is critical that you read and understand the definitions in types.h before st
     nor rd, rs, rt                                  0x27    R[rd] ← ~(R[rs] | R[rt])
     slt rd, rs, rt                                  0x2a    R[rd] ← (signed)R[rs] < (signed)R[rt]
     sltu rd, rs, rt                                 0x2b    R[rd] ← R[rs] < R[rt]
-    j address               J                       0x02    PC ← {(upper 4 bits of PC + 4), address*4}
-    jal address                                     0x03    R[31] ← PC + 4
+    j address               J           0x02                PC ← {(upper 4 bits of PC + 4), address*4}
+    jal address                         0x03                R[31] ← PC + 4
                                                             PC ← {(upper 4 bits of PC + 4), address*4}
-    beq rs, rt, offset      I                       0x04    if(R[rs] == R[rt])
+    beq rs, rt, offset      I           0x04                if(R[rs] == R[rt])
                                                             PC ← PC + 4 + SignExt(offset)*4
-    bne rs, rt, offset                              0x05    if(R[rs] != R[rt])
+    bne rs, rt, offset                  0x05                if(R[rs] != R[rt])
                                                             PC ← PC + 4 + SignExt(offset)*4
-    addiu rt, rs, imm                               0x09    R[rt] ← R[rs] + SignExt(imm)
-    slti rt, rs, imm                                0x0a    R[rt] ← (signed)R[rs] < SignExt(imm)
-    sltiu rt, rs, imm                               0x0b    R[rt] ← R[rs] < SignExt(imm)
-    andi rt, rs, imm                                0x0c    R[rt] ← R[rs] & ZeroExt(imm)
-    ori rt, rs, imm                                 0x0d    R[rt] ← R[rs] | ZeroExt(imm)
-    xori rt, rs, imm                                0x0e    R[rt] ← R[rs] ^ ZeroExt(imm)
-    lui rt, imm                                     0x0f    R[rt] ← imm << 16
-    lb rt, offset(rs)                               0x20    R[rt] ← SignExt(LoadMem(R[rs] + SignExt(offset), byte))
-    lh rt, offset(rs)                               0x21    R[rt] ← SignExt(LoadMem(R[rs] + SignExt(offset), half))
-    lw rt, offset(rs)                               0x23    R[rt] ← LoadMem(R[rs] + SignExt(offset), word)
-    lbu rt, offset(rs)                              0x24    R[rt] ← ZeroExt(LoadMem(R[rs] + SignExt(offset), byte))
-    lhu rt, offset(rs)                              0x25    R[rt] ← ZeroExt(LoadMem(R[rs] + SignExt(offset), half))
-    sb rt, offset(rs)                               0x28    StoreMem(R[rs] + SignExt(offset), byte, R[rt])
-    sh rt, offset(rs)                               0x29    StoreMem(R[rs] + SignExt(offset), half, R[rt])
-    sw rt, offset(rs)                               0x2b    StoreMem(R[rs] + SignExt(offset), word, R[rt])
+    addiu rt, rs, imm                   0x09                R[rt] ← R[rs] + SignExt(imm)
+    slti rt, rs, imm                    0x0a                R[rt] ← (signed)R[rs] < SignExt(imm)
+    sltiu rt, rs, imm                   0x0b                R[rt] ← R[rs] < SignExt(imm)
+    andi rt, rs, imm                    0x0c                R[rt] ← R[rs] & ZeroExt(imm)
+    ori rt, rs, imm                     0x0d                R[rt] ← R[rs] | ZeroExt(imm)
+    xori rt, rs, imm                    0x0e                R[rt] ← R[rs] ^ ZeroExt(imm)
+    lui rt, imm                         0x0f                R[rt] ← imm << 16
+    lb rt, offset(rs)                   0x20                R[rt] ← SignExt(LoadMem(R[rs] + SignExt(offset), byte))
+    lh rt, offset(rs)                   0x21                R[rt] ← SignExt(LoadMem(R[rs] + SignExt(offset), half))
+    lw rt, offset(rs)                   0x23                R[rt] ← LoadMem(R[rs] + SignExt(offset), word)
+    lbu rt, offset(rs)                  0x24                R[rt] ← ZeroExt(LoadMem(R[rs] + SignExt(offset), byte))
+    lhu rt, offset(rs)                  0x25                R[rt] ← ZeroExt(LoadMem(R[rs] + SignExt(offset), half))
+    sb rt, offset(rs)                   0x28                StoreMem(R[rs] + SignExt(offset), byte, R[rt])
+    sh rt, offset(rs)                   0x29                StoreMem(R[rs] + SignExt(offset), half, R[rt])
+    sw rt, offset(rs)                   0x2b                StoreMem(R[rs] + SignExt(offset), word, R[rt])
 
 For further reference, here are the bit lengths of the instruction components.
 
